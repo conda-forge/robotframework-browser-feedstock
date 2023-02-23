@@ -24,8 +24,10 @@ requirements:
     - grpcio-tools
     - robotframework
     - robotframework-pythonlibcore
+    - robotframework-assertion-engine
     - typing-extensions
     - wrapt
+    - overrides
   run:
     - python
     - nodejs
@@ -34,8 +36,10 @@ requirements:
     - grpcio-tools
     - robotframework
     - robotframework-pythonlibcore
+    - robotframework-assertion-engine
     - typing-extensions
     - wrapt
+    - overrides
 
 test:
   imports:
