@@ -1,5 +1,5 @@
 {% set name = "robotframework-browser" %}
-{% set version = "2.3.0" %}
+{% set version = "17.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 22e0ea0073ce3b440e31b5dca8031dd371f7f2e6f58acac00ae167c40680abd2
+  sha256: 7765282fa478bfe853b77e8bd9c956edbb75a95c40d5334dfe545e2f7c3730f9
 
 build:
-  number: 4
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv && rfbrowser init
   skip: true  # [py<37]
 
