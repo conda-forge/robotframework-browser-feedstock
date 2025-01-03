@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robotframework-browser-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/robotframework-browser-{{ version }}.tar.gz
   sha256: 8b8aa2468da27f74c7bb325c0ff7dc6ef38f91149bc2c9e6435591d76ae48730
 
 build:
@@ -14,16 +14,16 @@ build:
     - rfbrowser=Browser.entry:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - pip
     - nodejs >=18.0
 
   run:
-    - python >=3.8,<4.0
+    - python >={{ python_min }},<4.0
     - nodejs >=18.0
     - grpcio
     - grpcio-tools
@@ -42,6 +42,7 @@ test:
     - rfbrowser --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/MarketSquare/robotframework-browser
