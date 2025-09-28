@@ -153,5 +153,6 @@ Feedstock Maintainers
 
 * [@conda-forge/rpaframework-core](https://github.com/orgs/conda-forge/teams/rpaframework-core/)
 * [@martinRenou](https://github.com/martinRenou/)
+* [@rxm7706](https://github.com/rxm7706/)
 * [@xylix](https://github.com/xylix/)
 
