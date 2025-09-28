@@ -18,13 +18,13 @@ build:
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - pip
     - setuptools
     - nodejs >=18.0
 
   run:
-    - python >=3.8,<4.0
+    - python >={{ python_min }},<4.0
     - nodejs >=18.0
     - grpcio
     - grpcio-tools
@@ -44,6 +44,7 @@ test:
     - rfbrowser --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/MarketSquare/robotframework-browser
