@@ -1,5 +1,5 @@
 {% set name = "robotframework-browser" %}
-{% set version = "17.4.0" %}
+{% set version = "18.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,33 +7,35 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robotframework-browser-{{ version }}.tar.gz
-  sha256: 8b8aa2468da27f74c7bb325c0ff7dc6ef38f91149bc2c9e6435591d76ae48730
+  sha256: d1053c55c914fc3e031990cd519ac9e5e844d0e63d2a0568b96443aa2dea2c7e
 
 build:
   entry_points:
-    - rfbrowser=Browser.entry:main
+    - rfbrowser=Browser.entry:cli
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - pip
+    - setuptools
     - nodejs >=18.0
 
   run:
-    - python >=3.8,<4.0
+    - python >={{ python_min }},<4.0
     - nodejs >=18.0
     - grpcio
     - grpcio-tools
     - protobuf
-    - robotframework >=5.0.1
-    - robotframework-pythonlibcore >=4.2.0
-    - robotframework-assertion-engine >=2.0.0
+    - robotframework >=5.0.1,<8.0.0
+    - robotframework-pythonlibcore >=4.3.0,<5.0.0
+    - robotframework-assertion-engine >=3.0.3,<4.0.0
     - typing-extensions >=4.5.0
     - wrapt >=1.15.0
     - overrides >=7.3.1
+    - click >=8.1.7
 
 test:
   imports:
@@ -42,6 +44,7 @@ test:
     - rfbrowser --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/MarketSquare/robotframework-browser
@@ -59,4 +62,5 @@ extra:
   recipe-maintainers:
     - martinRenou
     - xylix
+    - rxm7706
     - conda-forge/rpaframework-core
