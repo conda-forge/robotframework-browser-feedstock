@@ -1,13 +1,13 @@
 {% set name = "robotframework-browser" %}
-{% set version = "18.0.0" %}
+{% set version = "19.8.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/robotframework-browser-{{ version }}.tar.gz
-  sha256: d1053c55c914fc3e031990cd519ac9e5e844d0e63d2a0568b96443aa2dea2c7e
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 5bcf63046bda3eae85b3e03b0b0fb8b85d6dfcd1fc8d09cad3c1aadeff2b8350
 
 build:
   entry_points:
