@@ -11,7 +11,7 @@ source:
 
 build:
   entry_points:
-    - rfbrowser=Browser.entry:cli
+    - rfbrowser = Browser.entry.__main__:cli
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
